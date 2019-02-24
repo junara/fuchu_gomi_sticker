@@ -2,6 +2,9 @@
 
 * 東京都府中市の粗大ゴミ料金表を検索してシール代金を表示するアプリです
 
+## イメージ
+[![Image from Gyazo](https://i.gyazo.com/4b67298239906ceb53d5aa9d4e98f8a4.gif)](https://gyazo.com/4b67298239906ceb53d5aa9d4e98f8a4)
+
 ## 環境
 * Ruby version 2.6.1
 * Rails version 6.0.0 beta 1
