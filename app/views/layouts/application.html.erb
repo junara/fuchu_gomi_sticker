@@ -4,12 +4,49 @@
     <title>FuchuGomiSticker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <nav class="navbar is-light" role="navigation">
+      <div class="container">
+        <div class="navbar-start">
+          <div class="navbar-brand">
+            <%= link_to root_path do %>
+              <div class="is-size-2 has-text-weight-bold">
+                fuchu-sodai-sticker
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
   <body>
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
+  <footer class="footer">
+    <div class="content">
+      <p>
+        <strong>東京都府中市 粗大ゴミの料金検索</strong> by junara
+      <ul>
+        <li>
+          <a href="https://github.com/junara/fuchu_gomi_sticker">github fuchu_gomi_sticker</a>.
+        </li>
+        <li>
+          粗大ゴミ料金表のデータは<a href="https://www.city.fuchu.tokyo.jp/kurashi/gomirisaikuru/dashikata/sodaigomidasikata.html">東京都府中市のオープンデータ</a>を使っています。
+        </li>
+      </ul>
+      </p>
+    </div>
+  </footer>
 </html>
