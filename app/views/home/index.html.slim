@@ -1,18 +1,32 @@
-h2 東京都府中市 粗大ごみの料金検索
-p 粗大ゴミとして廃棄したい物品の名前を入力して検索してください。
-p 府中市が公開している「粗大ごみの料金表」より該当品のシール代金を表示します
-= form_with url: root_path, method: :get, local: true, autocomplete: 'off' do |f|
-  = f.text_field :query, value: params[:query], autocomplete: 'off'
-  = f.submit '検索'
-
+h2.title 東京都府中市 粗大ごみの料金検索
 div
-  - @trashes.each do |trash|
-    div
-      div = trash.name
-      div = "#{trash.disposal_cost} 円"
+  p 府中市が公開している「粗大ごみの料金表」より該当品のシール代金を表示します
+  p 粗大ゴミとして廃棄したい物品の名前を入力して検索してください。
+  p シールの購入方法はこちらの
+  p = link_to '府中市粗大ごみの出し方', 'https://www.city.fuchu.tokyo.jp/kurashi/gomirisaikuru/dashikata/sodaigomidasikata.html'
+  p からお願いします。
+= form_with url: root_path, method: :get, local: true, autocomplete: 'off' do |f|
+  .field.has-addons
+    .control.is-expanded
+      = f.text_field :query, value: params[:query], class: 'input', autocomplete: 'off'
+    .control
+      = f.submit '検索', class: 'button is-info'
+
+.container
+  div.columns.is-multiline
+    - @trashes.each do |trash|
+      div.column.is-6.is-12-mobile
+        .card
+          header.card-header
+            p.card-header-title = trash.name
+          .card-content
+            .content
+              p = "#{trash.disposal_cost} 円"
+          footer.card-footer
+            .card-footer-item
+              = trash.updated_on
+
 
 = paginate @trashes
-
-= link_to '府中市粗大ごみの出し方', 'https://www.city.fuchu.tokyo.jp/kurashi/gomirisaikuru/dashikata/sodaigomidasikata.html'
 
 = javascript_pack_tag 'suggestionForm'
